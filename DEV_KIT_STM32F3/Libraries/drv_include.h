@@ -36,7 +36,7 @@
 /***                   DEFINE TIMER FUNCTIONS FOR THE MCU                    **/
 /******************************************************************************/
 #define DRV_TIM_PERIOD_ELAPSED_CALLBACK(x)                      HAL_TIM_PeriodElapsedCallback(x)
-
+#define DRV_TIM_BASE_START_IT(x)                                HAL_TIM_Base_Start_IT(x)
 /******************************************************************************/
 /***                   DEFINE UART FUNCTIONS FOR THE MCU                     **/
 /******************************************************************************/

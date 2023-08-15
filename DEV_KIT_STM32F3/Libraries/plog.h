@@ -212,7 +212,8 @@ enum {
 														,##__VA_ARGS__);\
                             TERMINAL_FONT_BLACK();                      \
                         }
-// #define LOGA(dbg,fmt,...)  if ((BIT(dbg) & FmDebug) == BIT(dbg)){                \
+/*
+#define LOGA(dbg,fmt,...)  if ((BIT(dbg) & FmDebug) == BIT(dbg)){                \
 														PLOG_DATE(); \
 														PLOG_HEADER();	\
 														_COLOR(dbg);                      \
@@ -220,6 +221,8 @@ enum {
 														,##__VA_ARGS__);\
                             TERMINAL_FONT_BLACK();                      \
                         }
+
+*/
 												
 #define LOGA(dbg,fmt,...)  if (1){                \
 														PLOG_DATE(); \

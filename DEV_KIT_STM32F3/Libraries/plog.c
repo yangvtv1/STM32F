@@ -1,17 +1,10 @@
 /*----------------------------------------------------
- *    ________________      _________
- *   /  _  \__    ___/      \_   ___ \  ____   _____
- *  /  /_\  \|    |  ______ /    \  \/ /  _ \ /     \
- * /    |    \    | /_____/ \     \___(  <_> )  Y Y  \
- * \____|__  /____|          \______  /\____/|__|_|  /
- *        \/                       \/             \/
- *----------------------------------------------------
- *    (C)2020 AT-Com
+ *    Copyright (c) 2023
  *
  *File 					: plog.c
  *Created on		: Dec 2020
- *Author				: ATCom RnD Team
- *Description		:
+ *Author				: Luong_Thanh_Hai
+ *Contact		    : elvis.luong@gmail.com
  *License: Revised BSD License, see LICENSE.TXT file include in the project
  **************************************************************************/
 #include "plog.h"

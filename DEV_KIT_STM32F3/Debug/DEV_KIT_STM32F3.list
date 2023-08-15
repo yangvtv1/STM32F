@@ -37,15 +37,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_ranges 00000eb0  00000000  00000000  0003c5a0  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_macro  0002148d  00000000  00000000  0003d450  2**0
+ 17 .debug_macro  00021499  00000000  00000000  0003d450  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   00014c69  00000000  00000000  0005e8dd  2**0
+ 18 .debug_line   00014c69  00000000  00000000  0005e8e9  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    000c560d  00000000  00000000  00073546  2**0
+ 19 .debug_str    000c563f  00000000  00000000  00073552  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .comment      00000053  00000000  00000000  00138b53  2**0
+ 20 .comment      00000053  00000000  00000000  00138b91  2**0
                   CONTENTS, READONLY
- 21 .debug_frame  000048d8  00000000  00000000  00138ba8  2**2
+ 21 .debug_frame  000048d8  00000000  00000000  00138be4  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -210,7 +210,7 @@ int main(void)
   MX_USART3_UART_Init();
  80002b8:	f000 f9c6 	bl	8000648 <MX_USART3_UART_Init>
   /* USER CODE BEGIN 2 */
-  HAL_TIM_Base_Start_IT(&htim2);
+  DRV_TIM_BASE_START_IT(&htim2);
  80002bc:	4803      	ldr	r0, [pc, #12]	; (80002cc <main+0x3c>)
  80002be:	f002 fd65 	bl	8002d8c <HAL_TIM_Base_Start_IT>
   init_test_callback();

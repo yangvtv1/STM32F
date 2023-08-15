@@ -134,7 +134,7 @@ int main(void)
   MX_USART2_UART_Init();
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
-  HAL_TIM_Base_Start_IT(&htim2);
+  DRV_TIM_BASE_START_IT(&htim2);
   init_test_callback();
   /* USER CODE END 2 */
 
