@@ -43,7 +43,7 @@ void test_cbk(void * arg)                 // callback to period timer
 	static uint32_t check_counter = 0;
 	if(check_counter != 0)
 	{
-		LOGA(INF, "Call timer: %d\r\n", DRV_GETTICK() - check_counter);
+		LOGA(INF, "Call timer: %ld\r\n", DRV_GETTICK() - check_counter);
 		check_counter = DRV_GETTICK();
 	}
 	else
@@ -54,7 +54,11 @@ void test_cbk(void * arg)                 // callback to period timer
 
 void test_uart_cbk(void * arg)         // callback to usart interrupt
 {
-
+	uint8_t * symbol = (uint8_t *) arg;
+	if(TEST_CBK.usart.rx.idx < sizeof(TEST_CBK.usart.rx.rcv) - 1)
+	{
+		TEST_CBK.usart.rx.rcv[TEST_CBK.usart.rx.idx++] = *symbol;
+	}
 }
 /******************************************************************************/
 /******************************************************************************/
@@ -76,23 +80,24 @@ void init_test_callback(void)
 
 	Cblk_parameter_t test_callback;
 
-	uint32_t timeout;
-	timeout = 6000;
+	TEST_CBK.tim.time_refesh = 6000;
 
 	_Clear_DrvPar(&test_callback);
 	test_callback.type = DR_TIMER;
-	test_callback.para = &timeout;
+	test_callback.para = &TEST_CBK.tim.time_refesh;
 	test_callback.EventCallback_t = &test_cbk;
 	Drv_RegisterIRQ_callback(test_callback);
 
+
+
+
 	Cblk_parameter_t test_uart;
-	uint32_t rcu_usart;
-	rcu_usart = RCU_USART1;
+	TEST_CBK.usart.peri.uart.rcu_uart = RCU_USART1;
 
 	_Clear_DrvPar(&test_uart);
 	test_uart.type = DR_UART;
-	test_uart.para = &rcu_usart;
-	test_uart.EventCallback_t = test_uart_cbk;
+	test_uart.para = &TEST_CBK.usart.peri.uart.rcu_uart;
+	test_uart.EventCallback_t = &test_uart_cbk;
 	Drv_RegisterIRQ_callback(test_callback);
 
 //	TEST_CBK.init = &init_test_callback;

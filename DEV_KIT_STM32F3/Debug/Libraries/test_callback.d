@@ -38,6 +38,7 @@ Libraries/test_callback.o: ../Libraries/test_callback.c \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h \
  C:/Users/ATC/STM32CubeIDE/workspace_1.8.0/DEV_KIT_STM32F3/Libraries/drv_common.h \
+ C:/Users/ATC/STM32CubeIDE/workspace_1.8.0/DEV_KIT_STM32F3/Libraries/drv_include.h \
  C:/Users/ATC/STM32CubeIDE/workspace_1.8.0/DEV_KIT_STM32F3/Libraries/plog.h \
  C:/Users/ATC/STM32CubeIDE/workspace_1.8.0/DEV_KIT_STM32F3/Libraries/test_callback.h
 
@@ -122,6 +123,8 @@ Libraries/test_callback.o: ../Libraries/test_callback.c \
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h:
 
 C:/Users/ATC/STM32CubeIDE/workspace_1.8.0/DEV_KIT_STM32F3/Libraries/drv_common.h:
+
+C:/Users/ATC/STM32CubeIDE/workspace_1.8.0/DEV_KIT_STM32F3/Libraries/drv_include.h:
 
 C:/Users/ATC/STM32CubeIDE/workspace_1.8.0/DEV_KIT_STM32F3/Libraries/plog.h:
 

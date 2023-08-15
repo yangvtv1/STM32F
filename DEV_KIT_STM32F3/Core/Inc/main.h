@@ -32,6 +32,7 @@ extern "C" {
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "drv_common.h"
+#include "drv_include.h"
 #include "plog.h"
 #include <stdio.h>
 #include "test_callback.h"

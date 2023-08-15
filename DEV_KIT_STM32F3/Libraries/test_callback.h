@@ -17,6 +17,19 @@
 
 typedef struct
 {
+	struct
+	{
+		peripheral_t peri;
+		drv_buf_t rx;
+	}
+	usart;
+
+	struct
+	{
+		uint32_t time_refesh;
+	}
+	tim;
+
 	void (*init)(void);
 	void (*run)(void);
 }

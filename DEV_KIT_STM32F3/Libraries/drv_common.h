@@ -15,12 +15,6 @@
 #include "string.h"
 #include "stdbool.h"
 
-#define RCU_USART1          USART1_BASE
-#define RCU_USART2          USART2_BASE
-#define RCU_USART3          USART3_BASE
-#define RCU_UART4           UART4_BASE
-#define RCU_UART5           UART5_BASE
-
 #define IRQ_MAX  20
 
  typedef enum
@@ -61,5 +55,5 @@ extern void DRV_TIMER_FNC(void *arg);
 /******************************************************************************/
 void _Clear_DrvPar(Cblk_parameter_t *_cblk);
 bool Drv_RegisterIRQ_callback(Cblk_parameter_t cbk);
-void UART_IRQ(uint32_t _uart);
+void UART_IRQ(uint32_t _uart, uint8_t _char);
 #endif /* DRV_COMMON_H_ */

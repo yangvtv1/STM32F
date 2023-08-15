@@ -29,7 +29,6 @@
 #define GLOBAL_CCMRAM __attribute__((section (".ccmram")));
 uint32_t timer_counter       GLOBAL_CCMRAM;
 uint8_t  UART1_rxBuffer[2]   GLOBAL_CCMRAM;
-uint8_t  test_buffer[400]    GLOBAL_CCMRAM;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -79,7 +78,7 @@ static void MX_USART3_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+void DRV_TIM_PERIOD_ELAPSED_CALLBACK(TIM_HandleTypeDef *htim)
 {
 	if(htim->Instance == TIM2)
 	{
@@ -87,14 +86,13 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	}
 }
 
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+void DRV_UART_RX_CPLT_CALLBACK(UART_HandleTypeDef *huart)
 {
 	if(huart->Instance == USART1)
 	{
-		if(UART1_rxBuffer[0] == '1') HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
-	    HAL_UART_Transmit(&huart1, UART1_rxBuffer, 1, 1000);
-	    HAL_UART_Receive_IT(&huart1, UART1_rxBuffer, 1);
-	    UART_IRQ(RCU_USART1);
+		DRV_UART_RECEIVE_IT(&huart1, UART1_rxBuffer, 1);
+	    UART_IRQ(RCU_USART1, UART1_rxBuffer[0]);
+	    memset(&UART1_rxBuffer, 0x00, sizeof(UART1_rxBuffer));
 	}
 }
 
@@ -137,10 +135,7 @@ int main(void)
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(&htim2);
-  printf("hello\r\n");
-  LOGA(INF_FILE, "testlog\r\n");
   init_test_callback();
-  memset(test_buffer, 0x00, sizeof(test_buffer));
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -150,11 +145,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-//	HAL_GPIO_TogglePin(LD4_GPIO_Port, LD4_Pin);
-//	HAL_Delay(400);
 	DRV_RUN();
-//	LOGA(APP, "This is plog\r\n");
-//	HAL_Delay(400);
   }
   /* USER CODE END 3 */
 }

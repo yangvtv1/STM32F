@@ -20,24 +20,6 @@
 #define xstr(x) str(x)
 #define PLOG_ENA                     1
 
-/******************************************************************************/
-/***                   DEFINE SYSTEM FUNCTIONS FOR THE MCU                   **/
-/******************************************************************************/
-#define getSysTick 												HAL_GetTick
-#define DRV_GETTICK												getSysTick
-#define	DRV_MILLIS												getSysTick
-#define delay_ms(x)                                             HAL_Delay(x)
-#define DRV_DELAY_MS(x)										    delay_ms(x)
-/******************************************************************************/
-/***                   DEFINE UART FUNCTIONS FOR THE MCU                     **/
-/******************************************************************************/
-//#define DRV_UART_RECEIVE 									usart_data_receive
-//#define DRV_UART_TRANSMIT 								    usart_data_transmit
-//#define DRV_UART_FLAG_TBE_GET(x) 					        usart_flag_get(x,USART_FLAG_TBE)
-//#define DRV_UART_FLAG_TC_GET(x) 					        usart_flag_get(x,USART_FLAG_TC)
-//#define DRV_UART_FLAG_TC_CLEAR(x)					        usart_flag_clear(x,USART_FLAG_TC)
-//#define DRV_UART_FLAG_TBE_CLEAR(x)				            usart_flag_clear(x,USART_FLAG_TBE)
-
 
 #define PL_ALL 			0xFFFF
 //#define PL_ALL  		(PL_OFF|BIT(USER)|BIT(APP)|BIT(RSCOM)|BIT(INF)|BIT(FLA)|BIT(INF_FILE)|BIT(RULES))
@@ -230,14 +212,14 @@ enum {
 														,##__VA_ARGS__);\
                             TERMINAL_FONT_BLACK();                      \
                         }
-//#define LOGA(dbg,fmt,...)  if ((BIT(dbg) & FmDebug) == BIT(dbg)){                \
-//														PLOG_DATE(); \
-//														PLOG_HEADER();	\
-//														_COLOR(dbg);                      \
-//														PRINTF("[LOG]%s(%d): "fmt"", __FUNCTION__, __LINE__ \
-//														,##__VA_ARGS__);\
-//                            TERMINAL_FONT_BLACK();                      \
-//                        }
+// #define LOGA(dbg,fmt,...)  if ((BIT(dbg) & FmDebug) == BIT(dbg)){                \
+														PLOG_DATE(); \
+														PLOG_HEADER();	\
+														_COLOR(dbg);                      \
+														PRINTF("[LOG]%s(%d): "fmt"", __FUNCTION__, __LINE__ \
+														,##__VA_ARGS__);\
+                            TERMINAL_FONT_BLACK();                      \
+                        }
 												
 #define LOGA(dbg,fmt,...)  if (1){                \
 														PLOG_DATE(); \

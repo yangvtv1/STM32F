@@ -102,7 +102,7 @@ bool Drv_RegisterIRQ_callback(Cblk_parameter_t cbk)
     \param[out] none
     \retval     none
 */
-void UART_IRQ(uint32_t _uart)
+void UART_IRQ(uint32_t _uart, uint8_t _char)
 {
 	for(uint8_t i=0; i<IRQ_MAX; i++)
 	{
@@ -115,7 +115,7 @@ void UART_IRQ(uint32_t _uart)
 		{
 			if(_uart == *(uint32_t*)IRQ_Arr[i].para)
 			{
-				IRQ_Arr[i].EventCallback_t(IRQ_Arr[i].para);
+				IRQ_Arr[i].EventCallback_t(&_char);         // IRQ_Arr[i].para
 			}
 		}
 	}
