@@ -1,0 +1,6 @@
+drv_common.c:26:6:_Clear_DrvPar	16	static
+drv_common.c:35:6:Drv_RegisterTIMER	64	static
+drv_common.c:42:6:DRV_TIMER_FNC	32	static
+drv_common.c:69:6:DRV_RUN	16	static
+drv_common.c:84:6:Drv_RegisterIRQ_callback	24	static
+drv_common.c:105:6:UART_IRQ	24	static

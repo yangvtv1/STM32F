@@ -1,0 +1,16 @@
+plog.c:133:6:_help	24	static
+plog.c:144:6:_ResetHW	16	static
+plog.c:150:6:_Simulate	24	static
+plog.c:155:6:_ATCmdTest	24	static
+plog.c:173:6:_set_plog	32	static
+plog.c:202:6:_plog_parser	32	static
+plog.c:219:6:bool_dbg_fnc	16	static
+stdio.h:214:5:fputc	40	static
+plog.c:267:6:USBPlog_callback	4	static
+plog.c:287:6:Plog_callback	16	static
+plog.c:309:6:Plog_timeout_callback	16	static
+plog.c:325:6:PLOG_Run	8	static
+plog.c:396:6:PLOG_Init	8	static
+plog.c:484:6:PLOG_Stop	16	static
+plog.c:487:6:PLOG_Start	16	static
+plog.c:491:6:PLG_PrintHexBuffer	24	static
