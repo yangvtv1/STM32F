@@ -28,7 +28,7 @@
 /* USER CODE BEGIN PTD */
 #define GLOBAL_CCMRAM __attribute__((section (".ccmram")));
 uint32_t timer_counter       GLOBAL_CCMRAM;
-uint8_t  UART1_rxBuffer[2]   GLOBAL_CCMRAM;
+uint8_t  UART1_rxBuffer[1]   GLOBAL_CCMRAM;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -92,7 +92,6 @@ void DRV_UART_RX_CPLT_CALLBACK(UART_HandleTypeDef *huart)
 	{
 		DRV_UART_RECEIVE_IT(&huart1, UART1_rxBuffer, 1);
 	    UART_IRQ(RCU_USART1, UART1_rxBuffer[0]);
-	    memset(&UART1_rxBuffer, 0x00, sizeof(UART1_rxBuffer));
 	}
 }
 
@@ -136,6 +135,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
   DRV_TIM_BASE_START_IT(&htim2);
   init_test_callback();
+  DRV_UART_RECEIVE_IT(&huart1, UART1_rxBuffer, 1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -146,6 +146,7 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 	DRV_RUN();
+	TEST_CBK.run();
   }
   /* USER CODE END 3 */
 }

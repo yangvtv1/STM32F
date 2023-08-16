@@ -20,7 +20,7 @@
 /***                      Private functions declare                          **/
 /******************************************************************************/
 /******************************************************************************/
-
+#define RX_TIMEOUT      150
 /******************************************************************************/
 /******************************************************************************/
 /***                                Global Parameters                        **/
@@ -54,11 +54,11 @@ void test_cbk(void * arg)                 // callback to period timer
 
 void test_uart_cbk(void * arg)         // callback to usart interrupt
 {
-	uint8_t * symbol = (uint8_t *) arg;
 	if(TEST_CBK.usart.rx.idx < sizeof(TEST_CBK.usart.rx.rcv) - 1)
 	{
-		TEST_CBK.usart.rx.rcv[TEST_CBK.usart.rx.idx++] = *symbol;
+		TEST_CBK.usart.rx.rcv[TEST_CBK.usart.rx.idx++] = *(uint8_t *) arg;
 	}
+	TEST_CBK.usart.rx.rxtime = DRV_GETTICK();
 }
 /******************************************************************************/
 /******************************************************************************/
@@ -67,7 +67,13 @@ void test_uart_cbk(void * arg)         // callback to usart interrupt
 /******************************************************************************/
 void run_test_callback(void)
 {
+	if(TEST_CBK.usart.rx.idx > 1 && abs((int)(DRV_GETTICK() - TEST_CBK.usart.rx.rxtime)) > RX_TIMEOUT)
+	{
+		LOGA(GPS, "Data: %s\r\n", TEST_CBK.usart.rx.rcv);
 
+		memset(&TEST_CBK.usart.rx.rcv, 0x00, sizeof(TEST_CBK.usart.rx.rcv));
+		TEST_CBK.usart.rx.idx = 0;
+	}
 }
 /******************************************************************************/
 /******************************************************************************/
@@ -98,9 +104,10 @@ void init_test_callback(void)
 	test_uart.type = DR_UART;
 	test_uart.para = &TEST_CBK.usart.peri.uart.rcu_uart;
 	test_uart.EventCallback_t = &test_uart_cbk;
-	Drv_RegisterIRQ_callback(test_callback);
+	Drv_RegisterIRQ_callback(test_uart);
 
-//	TEST_CBK.init = &init_test_callback;
+	TEST_CBK.init = &init_test_callback;
+	TEST_CBK.run = &run_test_callback;
 }
 /******************************************************************************/
 /******************************************************************************/

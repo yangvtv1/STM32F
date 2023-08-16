@@ -37,6 +37,7 @@ extern "C" {
 #include <stdio.h>
 #include "test_callback.h"
 #include "string.h"
+#include "stdlib.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
