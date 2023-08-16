@@ -30,8 +30,6 @@ Core/Src/stm32f3xx_hal_msp.o: ../Core/Src/stm32f3xx_hal_msp.c \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr_ex.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rtc.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rtc_ex.h \
- ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_spi.h \
- ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_spi_ex.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim_ex.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h \
@@ -40,7 +38,11 @@ Core/Src/stm32f3xx_hal_msp.o: ../Core/Src/stm32f3xx_hal_msp.c \
  C:/Users/ATC/STM32CubeIDE/workspace_1.8.0/DEV_KIT_STM32F3/Libraries/drv_include.h \
  C:/Users/ATC/STM32CubeIDE/workspace_1.8.0/DEV_KIT_STM32F3/Libraries/plog.h \
  C:/Users/ATC/STM32CubeIDE/workspace_1.8.0/DEV_KIT_STM32F3/Libraries/test_callback.h \
- C:/Users/ATC/STM32CubeIDE/workspace_1.8.0/DEV_KIT_STM32F3/Libraries/drv_common.h
+ C:/Users/ATC/STM32CubeIDE/workspace_1.8.0/DEV_KIT_STM32F3/Libraries/drv_common.h \
+ C:/Users/ATC/STM32CubeIDE/workspace_1.8.0/DEV_KIT_STM32F3/Libraries/flash_memory.h \
+ C:/Users/ATC/STM32CubeIDE/workspace_1.8.0/DEV_KIT_STM32F3/Libraries/AT_command.h \
+ C:/Users/ATC/STM32CubeIDE/workspace_1.8.0/DEV_KIT_STM32F3/Libraries/drv_atcmd.h \
+ C:/Users/ATC/STM32CubeIDE/workspace_1.8.0/DEV_KIT_STM32F3/Libraries/drv_atcmd.h
 
 ../Core/Inc/main.h:
 
@@ -106,10 +108,6 @@ Core/Src/stm32f3xx_hal_msp.o: ../Core/Src/stm32f3xx_hal_msp.c \
 
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rtc_ex.h:
 
-../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_spi.h:
-
-../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_spi_ex.h:
-
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim.h:
 
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim_ex.h:
@@ -127,3 +125,11 @@ C:/Users/ATC/STM32CubeIDE/workspace_1.8.0/DEV_KIT_STM32F3/Libraries/plog.h:
 C:/Users/ATC/STM32CubeIDE/workspace_1.8.0/DEV_KIT_STM32F3/Libraries/test_callback.h:
 
 C:/Users/ATC/STM32CubeIDE/workspace_1.8.0/DEV_KIT_STM32F3/Libraries/drv_common.h:
+
+C:/Users/ATC/STM32CubeIDE/workspace_1.8.0/DEV_KIT_STM32F3/Libraries/flash_memory.h:
+
+C:/Users/ATC/STM32CubeIDE/workspace_1.8.0/DEV_KIT_STM32F3/Libraries/AT_command.h:
+
+C:/Users/ATC/STM32CubeIDE/workspace_1.8.0/DEV_KIT_STM32F3/Libraries/drv_atcmd.h:
+
+C:/Users/ATC/STM32CubeIDE/workspace_1.8.0/DEV_KIT_STM32F3/Libraries/drv_atcmd.h:

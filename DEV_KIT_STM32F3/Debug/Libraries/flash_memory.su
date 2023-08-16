@@ -1,0 +1,3 @@
+flash_memory.c:35:6:write_flash	80	dynamic
+flash_memory.c:79:6:read_flash	24	static
+flash_memory.c:113:6:flash_init	8	static

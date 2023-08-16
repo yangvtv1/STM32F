@@ -42,6 +42,7 @@
 /******************************************************************************/
 #define DRV_UART_RX_CPLT_CALLBACK(x)                            HAL_UART_RxCpltCallback(x)
 #define DRV_UART_RECEIVE_IT(x, y, z)                            HAL_UART_Receive_IT(x, y, z)
+#define DRV_UART_TRANSMIT_IT(x, y, z)                           HAL_UART_Transmit_IT(x, y, z)
 
 //#define DRV_UART_RECEIVE 									usart_data_receive
 //#define DRV_UART_TRANSMIT 								    usart_data_transmit

@@ -107,7 +107,7 @@ bool DirectMode = false;
 /******************************************************************************/
 /******************************************************************************/
 const char help[] ={
-	"\r\n*************** ATCom Framework (v1.0) ********************\r\n"
+	"\r\n*************** Personal Framework (v1.0) ********************\r\n"
 	"** p reset : Reset HW\r\n"
 	"** p set speed <value>: simulate speed\r\n"
 	"**   <value> : -1 : end testing\r\n"
@@ -132,7 +132,7 @@ void _help(type_debug_t _type,void* arg){
 		printf("%s\r\n",plog_cmd[i].cmd_txt);
 		i++;
 	}
-	printf("******************* (C)ThaiVu-2020 **********************\r\n");
+	printf("******************* (C)HaiLuong-2023 **********************\r\n");
 }
 void _ResetHW(type_debug_t _type,void* arg){
 	printf("Reseting..........\r\n");
@@ -192,12 +192,14 @@ void _set_plog (type_debug_t _type,void * arg){
 /*	ex: p drv on\r\n : turn on driver debug
 *				p drv off\r\n : turn off driver debug
 */
-void _plog_parser(char *_arr,uint8_t _arr_sz){
+void _plog_parser(char *_arr,uint8_t _arr_sz)
+{
 	uint8_t i =0;
 	printf("%s",_arr);
-	while(PLEND != plog_cmd[i].type){
-		if (strncmp (plog_cmd[i].cmd_txt,_arr,strlen(plog_cmd[i].cmd_txt)) == 0){
-//			plog_cmd[i].Cbk_fnc(bool_dbg_fnc(&_arr[strlen(plog_cmd[i].cmd_txt)+1]),plog_cmd[i].type);
+	while(PLEND != plog_cmd[i].type)
+	{
+		if (strncmp (plog_cmd[i].cmd_txt,_arr,strlen(plog_cmd[i].cmd_txt)) == 0)
+		{
 			plog_cmd[i].Cbk_fnc(plog_cmd[i].type,&_arr[strlen(plog_cmd[i].cmd_txt)+1]);
 		}
 		i++;
@@ -389,6 +391,8 @@ void PLOG_Run(void)
 void PLOG_Init(void)
 {
 	memset(&PLOG, 0x00, sizeof(PLOG));
+	PLOG.Init = &PLOG_Init;
+	PLOG.plog_parser = &_plog_parser;
 //	/*USART0*/	
 //	PLOG.usart.peri.uart.rcu_uart = USART0;
 //	PLOG.usart.peri.uart.tx.port = GPIOA;
@@ -414,11 +418,11 @@ void PLOG_Init(void)
 //	PLOG.usart.peri.uart.rx.pin = GPIO_PIN_11;
 //	PLOG.usart.peri.uart.rx.port = GPIOC;
 			/*UART4*/
-	PLOG.usart.peri.uart.rcu_uart = UART4;
-	PLOG.usart.peri.uart.tx.pin = GPIO_PIN_12;	
-	PLOG.usart.peri.uart.tx.port = GPIOC;
-	PLOG.usart.peri.uart.rx.pin = GPIO_PIN_2;
-	PLOG.usart.peri.uart.rx.port = GPIOD;
+//	PLOG.usart.peri.uart.rcu_uart = UART4;
+//	PLOG.usart.peri.uart.tx.pin = GPIO_PIN_12;
+//	PLOG.usart.peri.uart.tx.port = GPIOC;
+//	PLOG.usart.peri.uart.rx.pin = GPIO_PIN_2;
+//	PLOG.usart.peri.uart.rx.port = GPIOD;
 	
 	
 //	rcu_periph_clock_enable(RCU_AF);
@@ -450,7 +454,7 @@ void PLOG_Init(void)
 //
 //	usart_interrupt_enable(UART4, USART_INT_RBNE);
 	
-	PLOG_Start(ALL);
+//	PLOG_Start(ALL);
 	
 	
 	//USB

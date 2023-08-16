@@ -1,4 +1,4 @@
 test_callback.c:41:6:test_cbk	16	static
 test_callback.c:55:6:test_uart_cbk	16	static
 test_callback.c:68:6:run_test_callback	8	static
-test_callback.c:83:6:init_test_callback	96	static
+test_callback.c:84:6:init_test_callback	96	static

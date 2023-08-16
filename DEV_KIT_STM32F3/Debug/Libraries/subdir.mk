@@ -5,17 +5,26 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Libraries/AT_command.c \
+../Libraries/drv_atcmd.c \
 ../Libraries/drv_common.c \
+../Libraries/flash_memory.c \
 ../Libraries/plog.c \
 ../Libraries/test_callback.c 
 
 OBJS += \
+./Libraries/AT_command.o \
+./Libraries/drv_atcmd.o \
 ./Libraries/drv_common.o \
+./Libraries/flash_memory.o \
 ./Libraries/plog.o \
 ./Libraries/test_callback.o 
 
 C_DEPS += \
+./Libraries/AT_command.d \
+./Libraries/drv_atcmd.d \
 ./Libraries/drv_common.d \
+./Libraries/flash_memory.d \
 ./Libraries/plog.d \
 ./Libraries/test_callback.d 
 
@@ -27,7 +36,7 @@ Libraries/%.o: ../Libraries/%.c Libraries/subdir.mk
 clean: clean-Libraries
 
 clean-Libraries:
-	-$(RM) ./Libraries/drv_common.d ./Libraries/drv_common.o ./Libraries/plog.d ./Libraries/plog.o ./Libraries/test_callback.d ./Libraries/test_callback.o
+	-$(RM) ./Libraries/AT_command.d ./Libraries/AT_command.o ./Libraries/drv_atcmd.d ./Libraries/drv_atcmd.o ./Libraries/drv_common.d ./Libraries/drv_common.o ./Libraries/flash_memory.d ./Libraries/flash_memory.o ./Libraries/plog.d ./Libraries/plog.o ./Libraries/test_callback.d ./Libraries/test_callback.o
 
 .PHONY: clean-Libraries
 

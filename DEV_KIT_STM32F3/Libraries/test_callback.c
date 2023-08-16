@@ -69,8 +69,9 @@ void run_test_callback(void)
 {
 	if(TEST_CBK.usart.rx.idx > 1 && abs((int)(DRV_GETTICK() - TEST_CBK.usart.rx.rxtime)) > RX_TIMEOUT)
 	{
-		LOGA(GPS, "Data: %s\r\n", TEST_CBK.usart.rx.rcv);
 
+		LOGA(GPS, "Data: %s\r\n", TEST_CBK.usart.rx.rcv);
+		PLOG.plog_parser((char* )TEST_CBK.usart.rx.rcv, TEST_CBK.usart.rx.idx);
 		memset(&TEST_CBK.usart.rx.rcv, 0x00, sizeof(TEST_CBK.usart.rx.rcv));
 		TEST_CBK.usart.rx.idx = 0;
 	}

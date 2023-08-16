@@ -27,7 +27,7 @@
 //#define PL_OFF 			0x0000
 //#define PL_DEFAULT  (PL_OFF|BIT(USER)|BIT(APP)|BIT(RSCOM)|BIT(INF)|BIT(FLA)|BIT(INF_FILE)|BIT(RULES)|BIT(GPS))
 
-#define RX_MAX_BUF 400
+#define RX_MAX_BUF 400/4
 
 #define PL_OFF 			0x0000
 #define PL_DEFAULT  (PL_OFF|BIT(USER)|BIT(APP)|BIT(INF)|BIT(FLA)|BIT(INF_FILE)|BIT(RULES)) //
@@ -409,8 +409,10 @@ typedef struct plog
 		drv_buf_t rx;
 		bool handle_flag;
 		peripheral_t peri;
-	}usart;
+	}
+	usart;
 	void (*Init)(void);
+	void (*plog_parser)(char* , uint8_t );
 //	void (*Start)(type_debug_t);
 //	void (*Stop)(type_debug_t);
 }
